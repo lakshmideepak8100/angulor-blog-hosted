@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'category', component: SingleCategoryComponent },
   { path: 'terms-conditions', component: TermsAndConditionsComponent },
   { path: 'contact', component: ContactUsComponent },
-  { path: 'about-us', component: AboutUsComponent },
+  { path: 'about', component: AboutUsComponent },
   { path: 'post', component: SinglePostComponent },
 ];
 

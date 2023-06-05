@@ -47,3 +47,11 @@ input[type="email"] {
 .background-theme {
   background-color: var(--primary-color);
 }
+
+.bg-secondary-theme {
+  background-color: var(--secondary-color);
+}
+
+.text-theme-primary {
+  color: var(--primary-color);
+}
