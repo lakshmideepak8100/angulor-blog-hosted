@@ -1,4 +1,9 @@
 .card {
   max-width: 400px;
   min-height: 500px;
+  transition: all 0.5ms ease-in-out 0.5ms;
+}
+.card:hover {
+  scale: 1.1;
+  box-shadow: 3px 5px 33px 10px rgba(71, 114, 254, 0.3);
 }

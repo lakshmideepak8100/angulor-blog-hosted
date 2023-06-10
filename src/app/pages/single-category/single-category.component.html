@@ -1,6 +1,6 @@
 <div class="background-theme p-5">
   <div class="container">
-    <h1 class="text-white">General Post</h1>
+    <h1 class="text-white">{{ categoryName }}</h1>
     <p class="text-white">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nemo
       reiciendis distinctio ipsa aliquam voluptatum odio nihil? Expedita, et
@@ -9,24 +9,9 @@
   </div>
 </div>
 <div class="container mt-5 mb-5">
-  <div class="row">
-    <div class="col-md-4 mb-5">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mb-5">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mb-5">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mb-5">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mb-5">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mb-5">
-      <app-post-card></app-post-card>
+  <div class="row" *ngIf="categoryPostList">
+    <div class="col-md-4 mb-5" *ngFor="let postOfCategory of categoryPostList">
+      <app-post-card [postData]="postOfCategory"></app-post-card>
     </div>
   </div>
 </div>

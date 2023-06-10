@@ -62,4 +62,8 @@ export class PostService {
         })
       );
   }
+
+  loadPost(postid) {
+    this.afs.doc(`posts/${postid}`).valueChanges();
+  }
 }
