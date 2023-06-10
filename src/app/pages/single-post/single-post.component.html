@@ -1,59 +1,55 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      <div class="card shadow-effect">
+      <div class="card shadow-effect" *ngIf="this.postContent">
         <img
-          src="https://images.pexels.com/photos/39853/woman-girl-freedom-happy-39853.jpeg?auto=compress&cs=tinysrgb&w=600"
+          src="{{ this.postContent.postImgPath }}"
           alt="single-post-img"
           class="card-img-top img-fluid"
         />
         <div class="card-body">
-          <small class="bg-light text-center text-danger">Design </small>
-          <small class="bg-light text-center text-success ml-2">Featured</small>
-          <small class="bg-light text-center text-info ml-2"
-            >Views-102,375</small
+          <small class="bg-light text-center text-danger">
+            {{ this.postContent.category.category }}
+          </small>
+          <small
+            class="bg-light text-center text-success ml-2"
+            *ngIf="this.postContent.isFeatured"
           >
-          <small class="bg-light text-center text-warning ml-2"
-            >Last-Viewed -20 Jun 2023</small
-          >
-          <h1 class="mt-3 mb-3">How to design a Blog</h1>
+            Featured
+          </small>
+          <small class="bg-light text-center text-info ml-2">
+            Views-
+            {{
+            this.postContent.views
+          }}</small>
+          <small class="bg-light text-center text-warning ml-2">{{
+            this.postContent.createdAt
+          }}</small>
+          <h1 class="mt-3 mb-3" >{{ this.postContent.title }}</h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio,
-            totam! Eum explicabo accusamus quas doloremque ut dolor eos eligendi
-            architecto vitae reprehenderit consequuntur neque, nulla consectetur
-            molestias molestiae culpa. Velit aperiam laboriosam voluptatibus non
-            maxime est modi at cum facere perferendis fugit repudiandae,
-            exercitationem dolorum porro fuga labore! Debitis reiciendis alias,
-            cum similique quod molestiae voluptatibus possimus, impedit
-            voluptates pariatur porro officiis unde dolores tempore et. Cumque
-            facilis asperiores ut amet molestiae sint perferendis praesentium,
-            quam earum. Excepturi rem blanditiis, porro perspiciatis tenetur
-            fugit a, corporis hic repellat officiis nulla aperiam culpa iure
-            tempore cumque ipsam labore consectetur! Labore, repellat quam esse
-            quae alias quisquam deleniti cumque doloremque suscipit sed, minima
-            ipsam dolorem quod, pariatur deserunt necessitatibus id ex? Ullam
-            consequatur porro reprehenderit quo fugit autem asperiores nesciunt
-            beatae eius doloribus provident sapiente dolore magnam, quod vel
-            numquam, doloremque corporis ducimus debitis deserunt nostrum
-            minima! Natus, error. Fugiat inventore, expedita doloremque ab
-            facilis velit maxime. Hic, et. Explicabo quam soluta, architecto
-            dignissimos asperiores voluptatem ut ad? Eos adipisci officia culpa
-            impedit suscipit quibusdam enim voluptatibus temporibus
-            reprehenderit incidunt eius repudiandae ratione modi ad molestiae
-            sunt dignissimos a doloremque harum eaque architecto doloribus
-            eveniet, dicta rem? Facilis, quasi atque temporibus ab cum similique
-            quaerat enim sit at possimus pariatur quo laboriosam magni animi
-            iusto debitis tempore obcaecati harum. Quaerat minus atque laborum
-            nobis ipsum alias, exercitationem illum non blanditiis. Pariatur
-            unde voluptate harum quam laboriosam sed et nobis excepturi. Quas
-            quibusdam ducimus reiciendis id, repudiandae dignissimos nostrum
-            ratione aperiam recusandae dolores quia quam consequuntur!
-            Temporibus quas voluptates, exercitationem cupiditate in corporis
-            asperiores assumenda ex odit esse expedita quia, inventore libero
-            saepe ad qui maxime, impedit aut? Repellat, quibusdam consequatur!
-            Aperiam non pariatur deserunt est sint, ducimus vitae in eligendi!
-            Corporis rerum expedita eius accusantium fugit doloremque quibusdam
-            error obcaecati est. Nesciunt!
+            <b>
+              <i> {{ this.postContent.excerpt }} </i>
+            </b>
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            aperiam perspiciatis reprehenderit repudiandae, vero distinctio non
+            corrupti tempora inventore qui ut odio accusantium voluptate iure
+            beatae rerum error cumque earum. Ipsa, sit itaque doloremque minus,
+            commodi accusantium, aperiam maxime ex inventore dolor fugit? Porro
+            placeat minus nulla optio reiciendis nihil voluptatibus quia
+            ducimus! Quas quibusdam officia sapiente tempora distinctio magni,
+            accusantium quia, laboriosam voluptatum magnam dolore delectus
+            laudantium quae est neque inventore nostrum ab veniam eaque cum
+            consequatur blanditiis! Suscipit mollitia laborum quam quia qui
+            eaque, rerum necessitatibus recusandae perferendis, animi sit! Non
+            rem voluptate blanditiis, et iure minima corrupti inventore quod
+            animi, quam placeat sed exercitationem repellendus veniam dicta
+            beatae modi doloremque laboriosam magnam dolorum quasi impedit saepe
+            atque. Pariatur, cumque repudiandae sint, officia magnam,
+            exercitationem quis quaerat saepe corrupti minus placeat eius magni.
+            Voluptatem nesciunt quia adipisci ipsum, autem sint perspiciatis
+            iste distinctio in culpa dolores, eveniet vel?
           </p>
         </div>
       </div>
@@ -61,11 +57,10 @@
       <app-comments-list></app-comments-list>
     </div>
 
-    <div class="col-md-3">
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
+    <div class="col-md-3" *ngIf="similarPostsData">
+      <ng-container *ngFor="let post of similarPostsData">
+        <app-post-card [postData]="post"></app-post-card>
+      </ng-container>
     </div>
   </div>
 </div>
