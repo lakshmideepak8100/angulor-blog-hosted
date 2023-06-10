@@ -4,8 +4,7 @@
       <div class="col-md-12 text-center mt-5">
         <h2 class="text-white">Featured Posts</h2>
         <p class="text-white">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti,
-          modi?
+          You can view the things that interested more poeple here.
         </p>
       </div>
     </div>
@@ -23,30 +22,15 @@
 <section class="normal-posts container mt-5">
   <div class="col-md-12 text-center">
     <h2>Latest Posts</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ipsum ut
-      sed quas deserunt, necessitatibus laboriosam. Nobis laboriosam amet et.
-    </p>
+    <p>Freshly posted memories and travel destinations are posted here</p>
   </div>
 
   <div class="row">
-    <div class="col-md-4 mt-3">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mt-3">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mt-3">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mt-3">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mt-3">
-      <app-post-card></app-post-card>
-    </div>
-    <div class="col-md-4 mt-3">
-      <app-post-card></app-post-card>
+    <div
+      class="col-md-4 mt-3"
+      *ngFor="let latestPostData of latestPostArrayList"
+    >
+      <app-post-card [postData]="latestPostData"></app-post-card>
     </div>
   </div>
 </section>
