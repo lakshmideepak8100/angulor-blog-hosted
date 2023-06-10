@@ -1,23 +1,25 @@
-<div class="card shadow-effect">
+<div class="card shadow-effect" *ngIf="postData">
   <img
-    src="../../../assets/imgs/card-imgs/card-img-1.webp"
-    alt="post-img-night-sky"
+    src="{{ postData.data.postImgPath }}"
+    alt="post-img"
     class="card-img-top"
     height="300px"
   />
   <div class="card-body">
-    <small class="bg-light text-danger text-center">Design</small>
-    <small class="bg-light text-success text-center ml-3">Features</small>
-    <small class="bg-light text-info text-center ml-3">Views-105834 </small>
-    <h5 class="mt-1">Card-Title-How to start a blog</h5>
+    <small class="bg-light text-danger text-center">
+      {{ postData.data.category.category }}
+    </small>
+    <small class="bg-light text-success text-center ml-3">Featured</small>
+    <small class="bg-light text-info text-center ml-3">
+      {{ postData.data.views }}
+    </small>
+    <h5 class="mt-1">{{ postData.data.title }}</h5>
     <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem,
-      accusantium laboriosam cupiditate repudiandae veniam ab. Veniam adipisci
-      repellat consequuntur. Veniam.
+      {{ postData.data.excerpt }}
     </p>
 
-    <small class="bg-light text-warning text-center"
-      >Time Stamp - 20 06 2023 15:19</small
-    >
+    <small class="bg-light text-warning text-center">
+      {{ postData.data.createdAt }}
+    </small>
   </div>
 </div>
