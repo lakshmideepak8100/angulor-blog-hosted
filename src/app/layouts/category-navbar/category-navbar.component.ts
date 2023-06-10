@@ -13,6 +13,8 @@ export class CategoryNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.loadData().subscribe((categoriesFromFireDb) => {
+      console.log(categoriesFromFireDb);
+
       this.categoryList = categoriesFromFireDb;
     });
   }
